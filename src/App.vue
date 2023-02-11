@@ -1,87 +1,52 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+
+import { useUserStore } from '@/stores/user'
+import { storeToRefs } from 'pinia'
+
+const { user } = storeToRefs(useUserStore())
+const onUserLoginClick = () => {}
 </script>
 
 <template>
 	<header class="bg-amber-300">
-		<div class="">
+		<div class="columns-2">
 			<div>Название</div>
-			<img alt="Vue logo" src="@/assets/logo.svg" width="75" height="75" />
+			<div class="place-self-start md:place-self-end">
+				<img alt="Vue logo" src="@/assets/logo.svg" width="50" height="50" />
+			</div>
 		</div>
 
-		<div class="wrapper">
-			<nav class="static">
-				<RouterLink to="/">Главная </RouterLink>
-				<RouterLink to="/About">О нас</RouterLink>
-				<RouterLink to="/Objects">Объекты</RouterLink>
-				<RouterLink to="/Contacts">Контакты</RouterLink>
+		<div class="p-2">
+			<nav class="bg-green-200, columns-5, flex-row">
+				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/"
+					>Главная
+				</RouterLink>
+				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/About"
+					>О нас</RouterLink
+				>
+				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/Objects"
+					>Объекты</RouterLink
+				>
+				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/Contacts"
+					>Контакты</RouterLink
+				>
+				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/Admin"
+					>админ</RouterLink
+				>
+				<div v-if="!user">
+					<span>
+						<label for="username">Username</label>
+						<input id="username" />
+					</span>
+					<span>
+						<label for="password">Password</label>
+						<input id="password" />
+					</span>
+					<button @click="onUserLoginClick">Login</button>
+				</div>
 			</nav>
 		</div>
 	</header>
-
 	<RouterView />
 </template>
-
-<style scoped>
-header {
-	line-height: 1.5;
-	max-height: 100vh;
-}
-
-.logo {
-	display: block;
-	margin: 0 auto 2rem;
-}
-
-nav {
-	width: 100%;
-	font-size: 12px;
-	text-align: center;
-	margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-	color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-	background-color: transparent;
-}
-
-nav a {
-	display: inline-block;
-	padding: 0 1rem;
-	border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-	border: 0;
-}
-
-@media (min-width: 1024px) {
-	header {
-		display: flex;
-		place-items: center;
-		padding-right: calc(var(--section-gap) / 2);
-	}
-
-	.logo {
-		margin: 0 2rem 0 0;
-	}
-
-	header .wrapper {
-		display: flex;
-		place-items: flex-start;
-		flex-wrap: wrap;
-	}
-
-	nav {
-		text-align: left;
-		margin-left: -1rem;
-		font-size: 1rem;
-
-		padding: 1rem 0;
-		margin-top: 1rem;
-	}
-}
-</style>

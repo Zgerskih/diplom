@@ -1,16 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+	objects: Array,
+})
+</script>
 
 <template>
-	<div class="bg-green-100 box-border h-28 w-11/12 p-4 border-4">
-		<div class="columns-4">
-			<div>
-				<img alt="Vue logo" src="@/assets/logo.svg" width="75" height="75" />
+	<div class="bg-green-100, flex-auto">
+		<div class="bg-green-100">
+			<div class="columns-auto, flex-auto">
+				<div v-for="object in objects" :key="object.id">
+					<img class="" :src="object.image" />
+					<div class=" ">{{ object.title }}</div>
+					<div>{{ object.description }}</div>
+				</div>
 			</div>
-			<div>2</div>
-			<div>3</div>
 		</div>
-		<div class="">
-			<div></div>
-		</div>
+	</div>
+
+	<div class="">
+		<div></div>
 	</div>
 </template>
