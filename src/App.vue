@@ -50,3 +50,4 @@ const onUserLoginClick = () => {}
 	</header>
 	<RouterView />
 </template>
+<button @click="onUserLoginClick">Login</button>
