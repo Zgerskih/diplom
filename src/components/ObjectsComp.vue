@@ -9,7 +9,7 @@ defineProps({
 		<div class="bg-green-100">
 			<div class="columns-auto, flex-auto">
 				<div v-for="object in objects" :key="object.id">
-					<img class="" :src="object.image" />
+					<img class="w-1/12" :src="object.image" />
 					<div class=" ">{{ object.title }}</div>
 					<div>{{ object.description }}</div>
 				</div>
