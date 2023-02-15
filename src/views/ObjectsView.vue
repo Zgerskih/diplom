@@ -4,8 +4,6 @@ import { useSubscription } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 import { computed, reactive,  ref } from 'vue'
 
-
-
 const variables = reactive({
 	limit: 10,
 	offset: 0,

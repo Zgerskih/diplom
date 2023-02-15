@@ -11,9 +11,12 @@ const onUserLoginClick = () => {}
 <template>
 	<header class="bg-amber-300">
 		<div class="columns-2">
-			<h1 class="text-xl">Название</h1>
+			<h1 class="text-xl">Агенство Недвижимости</h1>
 			<div class="place-self-start md:place-self-end">
+        <RouterLink class="box-content h-10 w-10 p-1 border-1" to="/Admin"
+        >
 				<img class="float-right" alt="Vue logo" src="@/assets/logo.svg" width="50" height="50" />
+          </RouterLink>
 			</div>
 		</div>
 
@@ -30,9 +33,6 @@ const onUserLoginClick = () => {}
 				>
 				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/Contacts"
 					>Контакты</RouterLink
-				>
-				<RouterLink class="box-content h-10 w-10 p-1 border-1" to="/Admin"
-					>админ</RouterLink
 				>
 
 			</nav>
