@@ -7,7 +7,7 @@ defineProps({
 <template>
 	<div class="bg-green-100, flex-auto">
 		<div class="bg-green-100">
-			<div class="columns-auto, flex-auto">
+			<div class="columns-2, flex-auto">
 				<div v-for="object in objects" :key="object.id">
 					<img class="w-1/12" :src="object.image" />
 					<div class=" ">{{ object.title }}</div>

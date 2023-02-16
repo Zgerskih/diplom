@@ -14,11 +14,13 @@ const { mutate: insertObject } = useMutation(gql`
 
 const inputTitle = ref<HTMLInputElement | null>(null)
 const inputImage = ref<HTMLInputElement | null>(null)
+const inputDescription = ref<HTMLInputElement | null>(null)
 const onAddClicked = () => {
 	console.log('> AdminComp - onAddClicked:', inputTitle.value?.value)
 	insertObject({
 		title: inputTitle.value!.value,
 		image: inputImage.value!.value,
+		image: inputDescription.value!.value,
 	})
 }
 </script>
@@ -27,6 +29,7 @@ const onAddClicked = () => {
 	<div class="flex-auto">
 		<div class="mt-5">
 			<input ref="inputTitle" value="Title" />
+      <input ref="inputDescription" value="Title" />
 			<input
 				ref="inputImage"
 				value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy8brBENR0hGf6ub874PzSIB4kpIUnsAGeqErhJj1MEZQMK7tQoaWaPsFatap3emtnwcA&usqp=CAU"
